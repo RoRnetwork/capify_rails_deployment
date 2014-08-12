@@ -20,7 +20,8 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-
+  username: shan
+  password: password
 development:
   <<: *default
   database: capify_rails_deployment_development
