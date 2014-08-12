@@ -85,9 +85,14 @@ setup nginx
 	sudo service nginx start
 	cd /etc/nginx
 
-Create a Rails Application in your local which is going to deploy
+Create a Rails Application in your local which is going to deploy and push your codes into github
 	
 	rails new projectname 
+	touch README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin git@github.com:*usename*/*repository*.git
 
 Add `unicorn` gem in `Gemfile`
 	
@@ -303,3 +308,24 @@ In `deploy.rb`
 	end
 
 
+Add in `Capfile` file
+
+	load 'deploy'
+	load 'deploy/assets'
+	load 'config/deploy'
+
+Shake hands with github
+
+	# follow the steps in this guide if receive permission denied(public key)
+	# https://help.github.com/articles/error-permission-denied-publickey
+	ssh github@github.com
+
+Add ssh key to digitalocean
+
+	cat ~/.ssh/id_rsa.pub | ssh -p 22 username@123.123.123.123 'cat >> ~/.ssh/authorized_keys'
+
+Push all the codes into github
+
+	git add .
+	git commit -m "added deployment configuration"
+	git push -u origin master
