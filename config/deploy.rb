@@ -6,7 +6,7 @@ server "104.131.206.110", :web, :app, :db, primary: true
 
 set :application, "capify_rails_deployment"
 set :user, "shan"
-set :port, 3000
+set :port, 3001
 set :deploy_to, "/home/#{user}/deploy/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
