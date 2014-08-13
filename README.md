@@ -56,9 +56,35 @@ Update packages on virtual server
 	sudo apt-get update
 	sudo apt-get install curl
 
-Install latest stable version of rvm,ruby and rails 
 
-	\curl -sSL https://get.rvm.io | bash -s stable --rails --no-ri --no-rdoc
+Install latest stable version of rvm
+
+	curl -L get.rvm.io | bash -s stable
+
+Load rvm
+
+	source ~/.rvm/scripts/rvm
+
+Install rvm dependencies
+
+	rvm requirements
+
+Install ruby 2.1.2
+
+	rvm install 2.1.2
+
+Use 2.1.2 as rvm default
+
+	rvm use 2.1.2 --default
+
+Install latest version of rubygems if rvm install didn't
+
+	rvm rubygems current
+
+Install rails gem
+
+	gem install rails --no-ri --no-rdoc
+
 
 Install postgres
 
@@ -329,3 +355,6 @@ Push all the codes into github
 	git add .
 	git commit -m "added deployment configuration"
 	git push -u origin master
+
+
+---------------------
